@@ -32,9 +32,9 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 
-/* Author: Wim Meeussen */
+/* Based on the work of: Wim Meeussen */
 
-#include "people_tracking_filter/advanced_measmodel_pos.h"
+#include <dual_people_leg_tracker/models/advanced_measmodel_pos.h>
 
 using namespace std;
 using namespace BFL;

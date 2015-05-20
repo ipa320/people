@@ -37,9 +37,9 @@
 #ifndef MEASMODEL_POS_H
 #define MEASMODEL_POS_H
 
-#include "state_pos_vel.h"
-#include "tf/tf.h"
-#include "gaussian_vector.h"
+#include <people_tracking_filter/state_pos_vel.h>
+#include <tf/tf.h>
+#include <people_tracking_filter/gaussian_vector.h>
 #include <model/measurementmodel.h>
 #include <pdf/conditionalpdf.h>
 #include <dual_people_leg_tracker/models/occlusion_model.h>
