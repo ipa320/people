@@ -39,8 +39,8 @@
 #define MULTIVARIATE_GAUSSIAN_POS_VEL_H
 
 #include <pdf/pdf.h>
-#include "state_pos_vel.h"
-#include "gaussian_vector.h"
+#include <people_tracking_filter/state_pos_vel.h>
+#include <people_tracking_filter/gaussian_vector.h>
 #include <dual_people_leg_tracker/eigenmvn/eigenmvn.h>
 
 #define DEBUG_MULTIVARIATEGAUSSIANPOSVEL 1

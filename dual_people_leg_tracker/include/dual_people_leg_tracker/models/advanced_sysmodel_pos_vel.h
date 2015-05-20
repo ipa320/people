@@ -38,9 +38,9 @@
 #define ADVANCED_SYSMODEL_POS_VEL_H
 
 
-#include "state_pos_vel.h"
+#include <people_tracking_filter/state_pos_vel.h>
 #include <people_tracking_filter/gaussian_pos_vel.h>
-#include <people_tracking_filter/multivariate_gaussian_pos_vel.h>
+#include <dual_people_leg_tracker/distributions/multivariate_gaussian_pos_vel.h>
 #include <model/systemmodel.h>
 #include <pdf/conditionalpdf.h>
 #include <wrappers/matrix/matrix_wrapper.h>
