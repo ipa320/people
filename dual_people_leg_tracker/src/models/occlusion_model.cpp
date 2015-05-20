@@ -1,4 +1,4 @@
-#include <people_tracking_filter/occlusion_model.h>
+#include <dual_people_leg_tracker/models/occlusion_model.h>
 #include <cmath>
 
 OcclusionModel::OcclusionModel( tf::TransformListener& tfl)
