@@ -32,8 +32,8 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 
-#include <people_tracking_filter/advanced_tracker_particle.h>
-#include <people_tracking_filter/gaussian_pos_vel.h>
+#include <dual_people_leg_tracker/advanced_tracker_particle.h>
+//#include <people_tracking_filter/gaussian_pos_vel.h>
 //#include <people_tracking_filter/people_particle_filter.h>
 
 
@@ -85,7 +85,7 @@ void AdvancedTrackerParticle::initialize(const StatePosVel& mu, const StatePosVe
 
   // Create the Gaussian
 //  std::cout << "Mu: " << mu << "Sigma: " << sigma << std::endl;
-  GaussianPosVel gauss_pos_vel(mu, sigma);
+  GaussianPosVelMod gauss_pos_vel(mu, sigma);
 
   // Prepare vector to store the particles
   vector<Sample<StatePosVel> > prior_samples(num_particles_);

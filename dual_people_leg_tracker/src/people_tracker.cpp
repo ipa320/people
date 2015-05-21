@@ -7,7 +7,7 @@
 
 #include <ros/console.h>
 // Own includes
-#include <leg_detector/people_tracker.h>
+#include <dual_people_leg_tracker/people_tracker.h>
 #include <dual_people_leg_tracker/math/math_functions.h>
 #include <leg_detector/color_definitions.h>
 

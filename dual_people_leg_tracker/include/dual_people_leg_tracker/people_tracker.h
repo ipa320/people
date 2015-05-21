@@ -14,12 +14,14 @@
 // System includes
 #include <vector>
 
+// Boost includes
 #include <boost/shared_ptr.hpp>
 #include <boost/array.hpp>
-#include <leg_detector/leg_feature.h>
+
+// Own includes
+#include <dual_people_leg_tracker/leg_feature.h>
 
 #define DEBUG_PEOPLE_TRACKER 1
-
 #define DEBUG_PEOPLETRACKERLIST 1
 
 class LegFeature; //Forward declaration

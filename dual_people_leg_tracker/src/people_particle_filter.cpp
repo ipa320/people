@@ -30,7 +30,7 @@
 #include <filter/particlefilter.h>
 
 // Own includes
-#include <people_tracking_filter/people_particle_filter.h>
+#include <dual_people_leg_tracker/people_particle_filter.h>
 #include <sample/weightedsample.h>
 
 

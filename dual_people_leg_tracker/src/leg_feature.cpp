@@ -7,8 +7,8 @@
 
 
 // Own includes
-#include <leg_detector/leg_feature.h>
-#include <people_tracking_filter/advanced_tracker_particle.h>
+#include <dual_people_leg_tracker/leg_feature.h>
+#include <dual_people_leg_tracker/advanced_tracker_particle.h>
 
 int LegFeature::nextid = 0;
 

@@ -1,21 +1,13 @@
-/*
- * visualization_conversions.h
- *
- *  Created on: Mar 19, 2015
- *      Author: frm-ag
- */
-
 #ifndef PEOPLE_LEG_DETECTOR_INCLUDE_LEG_DETECTOR_VISUALIZATION_CONVERSIONS_H_
 #define PEOPLE_LEG_DETECTOR_INCLUDE_LEG_DETECTOR_VISUALIZATION_CONVERSIONS_H_
 
-//#include <leg_detector/leg_detector.h>
-#include <leg_detector/color_gradient.hpp>
-#include <leg_detector/saved_feature.h>
-#include <leg_detector/leg_feature.h>
+// Own includes
+#include <dual_people_leg_tracker/visualization/color_gradient.hpp>
+#include <dual_people_leg_tracker/leg_feature.h>
 
 namespace visualization{
 
-bool savedFeatureToSphereLegMarkerMsg(SavedFeature* sf, visualization_msgs::Marker::Ptr markerMsg, std::string& fixed_frame, unsigned int id = 0){
+/*bool savedFeatureToSphereLegMarkerMsg(SavedFeature* sf, visualization_msgs::Marker::Ptr markerMsg, std::string& fixed_frame, unsigned int id = 0){
 
     markerMsg->header.stamp = sf->time_;
     markerMsg->header.frame_id = fixed_frame;
@@ -41,7 +33,7 @@ bool savedFeatureToSphereLegMarkerMsg(SavedFeature* sf, visualization_msgs::Mark
     }
 
     return true;
-}
+}*/
 
 
 bool legFeatureToSphereLegMarkerMsg(LegFeature* sf, visualization_msgs::Marker::Ptr markerMsg, std::string& fixed_frame, unsigned int id = 0){
@@ -73,7 +65,7 @@ bool legFeatureToSphereLegMarkerMsg(LegFeature* sf, visualization_msgs::Marker::
 }
 
 
-bool clusterToTextMarkerMsg(SavedFeature* sf, visualization_msgs::Marker::Ptr markerMsg, std::string& fixed_frame, unsigned int id = 0){
+/*bool clusterToTextMarkerMsg(SavedFeature* sf, visualization_msgs::Marker::Ptr markerMsg, std::string& fixed_frame, unsigned int id = 0){
 
     markerMsg->header.stamp = sf->time_;
     markerMsg->header.frame_id = fixed_frame;
@@ -103,9 +95,9 @@ bool clusterToTextMarkerMsg(SavedFeature* sf, visualization_msgs::Marker::Ptr ma
     markerMsg->text = buf;
 
     return true;
-}
+}*/
 
-bool savedFeatureToPeopleMarkerMsg(SavedFeature* leg1, SavedFeature* leg2, visualization_msgs::Marker::Ptr pPeopleSphereMsg, visualization_msgs::Marker::Ptr legLineMsg, std::string& fixed_frame, tf::Vector3& peoplePos, unsigned int id = 0){
+/*bool savedFeatureToPeopleMarkerMsg(SavedFeature* leg1, SavedFeature* leg2, visualization_msgs::Marker::Ptr pPeopleSphereMsg, visualization_msgs::Marker::Ptr legLineMsg, std::string& fixed_frame, tf::Vector3& peoplePos, unsigned int id = 0){
   pPeopleSphereMsg->header.stamp = leg1->time_;
   pPeopleSphereMsg->header.frame_id = fixed_frame;
   pPeopleSphereMsg->ns = "PEOPLE";
@@ -129,7 +121,7 @@ bool savedFeatureToPeopleMarkerMsg(SavedFeature* leg1, SavedFeature* leg2, visua
   pPeopleSphereMsg->lifetime = ros::Duration(0.5);
 
   return true;
-}
+}*/
 
 }
 

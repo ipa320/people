@@ -8,34 +8,19 @@
 #ifndef LEG_FEATURE_H_
 #define LEG_FEATURE_H_
 
+// ROS includes
 #include <ros/ros.h>
-
-// Own includes
-// Configuration
 #include <dynamic_reconfigure/server.h>
-#undef DEFAULT
-#include <leg_detector/DualTrackerConfig.h>
-#define DEFAULT 0
-#include <leg_detector/color_definitions.h>
-
-// Transforms
 #include <tf/transform_listener.h>
 
-// People tracking
-#include <people_tracking_filter/advanced_tracker_particle.h>
+// Own includes
+#include <dual_people_leg_tracker/advanced_tracker_particle.h>
+#include <dual_people_leg_tracker/visualization/color_definitions.h>
+#include <dual_people_leg_tracker/people_tracker.h>
+
+// People Stack
 #include <people_tracking_filter/state_pos_vel.h>
 #include <people_tracking_filter/rgb.h>
-
-
-
-#include <leg_detector/people_tracker.h>
-
-//using namespace std;
-//using namespace ros;
-//using namespace tf;
-//using namespace estimation;
-//using namespace BFL;
-//using namespace MatrixWrapper;
 
 // Default variables
 #define DEBUG_LEG_TRACKER 0
@@ -88,13 +73,13 @@ public:
 
   std::vector<boost::shared_ptr<tf::Stamped<tf::Point> > > position_history_;
 
-  dynamic_reconfigure::Server<leg_detector::DualTrackerConfig> server_; /**< The configuration server*/
+  //dynamic_reconfigure::Server<leg_detector::DualTrackerConfig> server_; /**< The configuration server*/
   //void configure(leg_detector::DualTrackerConfig &config, uint32_t level); /**< Configuration config */
   //LegFeaturePtr other;
   //float dist_to_person_;
 
   //dynamic_reconfigure::Server<leg_detector::DualTrackerConfig> server;
-  leg_detector::DualTrackerConfig conf;
+  //leg_detector::DualTrackerConfig conf;
 
   LegFeature(tf::Stamped<tf::Point> loc, tf::TransformListener& tfl);
 

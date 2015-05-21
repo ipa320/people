@@ -34,15 +34,15 @@
 #include <ros/ros.h>
 
 // Own includes
-#include <leg_detector/constants.h>
-#include <leg_detector/dual_tracker.h>
-#include <leg_detector/DualTrackerConfig.h>
+//#include <leg_detector/constants.h>
+#include <dual_people_leg_tracker/dual_tracker.h>
+#include <dual_people_leg_tracker/DualTrackerConfig.h>
 #include <leg_detector/laser_processor.h>
 #include <leg_detector/calc_leg_features.h>
-#include <leg_detector/visualization_conversions.h>
+#include <dual_people_leg_tracker/visualization/visualization_conversions.h>
 #include <benchmarking/timer.h>
-#include <leg_detector/leg_feature.h>
-#include <leg_detector/people_tracker.h>
+#include <dual_people_leg_tracker/leg_feature.h>
+#include <dual_people_leg_tracker/people_tracker.h>
 #include <leg_detector/color_definitions.h>
 #include <dual_people_leg_tracker/visualization/color_functions.h>
 
@@ -85,7 +85,7 @@ using namespace BFL;
 using namespace MatrixWrapper;
 
 // Default variables
-// static string fixed_frame              = "odom_combined";  // The fixed frame in which ? //TODO find out
+static string fixed_frame              = "odom_combined";  // The fixed frame in which ? //TODO find out
 
 
 // Defines
@@ -205,7 +205,7 @@ public:
   ros::Publisher people_track_label_pub_; /**< Publishes labels of people tracks */
   ros::Publisher occlusion_model_pub_; /**< Published the occlusion probability */
 
-  dynamic_reconfigure::Server<leg_detector::DualTrackerConfig> server_; /**< The configuration server*/
+  dynamic_reconfigure::Server<dual_people_leg_tracker::DualTrackerConfig> server_; /**< The configuration server*/
 
   message_filters::Subscriber<people_msgs::PositionMeasurement> people_sub_;
   message_filters::Subscriber<sensor_msgs::LaserScan> laser_sub_;
@@ -267,7 +267,7 @@ public:
     laser_notifier_.setTolerance(ros::Duration(0.01));
 
     // Configuration server
-    dynamic_reconfigure::Server<leg_detector::DualTrackerConfig>::CallbackType f;
+    dynamic_reconfigure::Server<dual_people_leg_tracker::DualTrackerConfig>::CallbackType f;
     f = boost::bind(&DualTracker::configure, this, _1, _2);
     server_.setCallback(f);
 
@@ -285,7 +285,7 @@ public:
    *  @brief Handles the configuration of this node
    */
 
-  void configure(leg_detector::DualTrackerConfig &config, uint32_t level)
+  void configure(dual_people_leg_tracker::DualTrackerConfig &config, uint32_t level)
   {
     // Clustering parameters
     connected_thresh_           = config.connection_threshold;    ROS_DEBUG_COND(DUALTRACKER_DEBUG, "DualTracker::%s - connected_thresh_ %f", __func__, connected_thresh_ );

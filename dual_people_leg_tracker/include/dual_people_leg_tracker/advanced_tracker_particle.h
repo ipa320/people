@@ -32,31 +32,31 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 
-/* Author: Wim Meeussen */
+/* Based on the work of Author: Wim Meeussen */
 
 #ifndef __ADVANCED_TRACKER_PARTICLE__
 #define __ADVANCED_TRACKER_PARTICLE__
 
-#include "tracker.h"
 
-// bayesian filtering
+// ROS includes
+#include <tf/tf.h>
+
+// ROS Messages
+#include <sensor_msgs/PointCloud.h>
+
+// BFL includes
 #include <filter/bootstrapfilter.h>
-#include "state_pos_vel.h"
-#include "mcpdf_pos_vel.h"
-//#include "sysmodel_pos_vel.h"
-//#include "measmodel_pos.h"
 
-#include <people_tracking_filter/people_particle_filter.h>
+// People Stack includes
+#include <people_tracking_filter/tracker.h>
+#include <people_tracking_filter/state_pos_vel.h>
+#include <people_tracking_filter/mcpdf_pos_vel.h>
+
+// Own includes
+#include <dual_people_leg_tracker/people_particle_filter.h>
 #include <dual_people_leg_tracker/models/advanced_sysmodel_pos_vel.h>
 #include <dual_people_leg_tracker/models/advanced_measmodel_pos.h>
 #include <dual_people_leg_tracker/models/occlusion_model.h>
-#include <tf/tf.h>
-
-// msgs
-#include <sensor_msgs/PointCloud.h>
-
-// log files
-#include <fstream>
 
 namespace estimation
 {

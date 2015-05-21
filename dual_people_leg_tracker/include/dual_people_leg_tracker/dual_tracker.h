@@ -8,44 +8,44 @@
 #ifndef DUAL_TRACKER_H_
 #define DUAL_TRACKER_H_
 
+// ROS includes
 #include <ros/ros.h>
+#include <dynamic_reconfigure/server.h>
+#include <tf/transform_listener.h>
+#include <tf/message_filter.h>
+#include <message_filters/subscriber.h>
 
-// Own includes
-#include <leg_detector/DualTrackerConfig.h>
-#include <leg_detector/laser_processor.h>
-
-// OpenCV includes
-#include <opencv/cxcore.h>
-#include <opencv/cv.h>
-#include <opencv/ml.h>
-
-// Messages
+// ROS Messages
 #include <people_msgs/PositionMeasurement.h>
 #include <people_msgs/PositionMeasurementArray.h>
 #include <sensor_msgs/LaserScan.h>
 #include <sensor_msgs/PointCloud.h>
 #include <visualization_msgs/Marker.h>
 
-// Transforms
-#include <tf/transform_listener.h>
-#include <tf/message_filter.h>
-#include <message_filters/subscriber.h>
+// Own includes
+#include <dual_people_leg_tracker/DualTrackerConfig.h>
 
-// People tracking
-#include <people_tracking_filter/tracker_kalman.h>
+// OpenCV includes
+#include <opencv/cxcore.h>
+#include <opencv/cv.h>
+#include <opencv/ml.h>
+
+// ROS Messages
+#include <people_msgs/PositionMeasurement.h>
+#include <people_msgs/PositionMeasurementArray.h>
+#include <sensor_msgs/LaserScan.h>
+#include <sensor_msgs/PointCloud.h>
+#include <visualization_msgs/Marker.h>
+
+// People Stack
 #include <people_tracking_filter/state_pos_vel.h>
-#include <people_tracking_filter/rgb.h>
-
-// Configuration
-#include <dynamic_reconfigure/server.h>
+#include <leg_detector/laser_processor.h>
 
 using namespace std;
 using namespace laser_processor;
 using namespace ros;
 using namespace tf;
-using namespace estimation;
 using namespace BFL;
-using namespace MatrixWrapper;
 
 static double no_observation_timeout_s = 0.5;
 static double max_second_leg_age_s     = 2.0;
