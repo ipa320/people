@@ -52,6 +52,9 @@ class SysPdfPosVel
   : public ConditionalPdf<StatePosVel, StatePosVel>
 {
 public:
+
+  int parameter_; // Further thing here
+
   /// Constructor
   SysPdfPosVel(const StatePosVel& sigma);
 
@@ -73,12 +76,9 @@ public:
 
 private:
   GaussianPosVel noise_;
-  double dt_;
+  double dt_; // Time delta
 
 }; // class
-
-
-
 
 
 

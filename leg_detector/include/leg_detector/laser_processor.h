@@ -87,15 +87,35 @@ struct CompareSample
 };
 
 
-//! An ordered set of Samples
+//! An ordered set of Samples( a Cluster)
 class SampleSet : public std::set<Sample*, CompareSample>
 {
 public:
-  SampleSet() {}
+  int id_; /** < Id of the SampleSet */
+
+  std::string label; /**< A given label */
+
+  double probability_; /**< The probability in being a leg */
+
+public:
+  SampleSet():
+    probability_(0.0),
+    id_(0)
+    {
+
+    }
 
   ~SampleSet()
   {
     clear();
+  }
+
+  void setProbability(double probability){
+    probability_ = probability;
+  }
+
+  double getProbability(){
+    return probability_;
   }
 
   void clear();
@@ -103,6 +123,8 @@ public:
   void appendToCloud(sensor_msgs::PointCloud& cloud, int r = 0, int g = 0, int b = 0);
 
   tf::Point center();
+
+  void saveAsSVG(const char* file);
 };
 
 //! A mask for filtering out Samples based on range
@@ -144,6 +166,8 @@ public:
     return clusters_;
   }
 
+  ScanProcessor(const sensor_msgs::LaserScan& scan);
+
   ScanProcessor(const sensor_msgs::LaserScan& scan, ScanMask& mask_, float mask_threshold = 0.03);
 
   ~ScanProcessor();
@@ -151,6 +175,9 @@ public:
   void removeLessThan(uint32_t num);
 
   void splitConnected(float thresh);
+
+  void splitConnectedRangeAware(float thresh);
+
 };
 };
 

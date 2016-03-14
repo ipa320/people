@@ -68,6 +68,14 @@ std::ostream& operator<< (std::ostream& os, const GaussianPosVel& g)
   return os;
 }
 
+void GaussianPosVel::sigmaSet(const StatePosVel& sigma)
+{
+  sigma_ = sigma;
+  sigma_changed_ = true;
+
+  //assert(false); // Never been here! Carefull!
+}
+
 
 Probability GaussianPosVel::ProbabilityGet(const StatePosVel& input) const
 {

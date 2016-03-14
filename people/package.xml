@@ -23,6 +23,7 @@
   <run_depend>leg_detector</run_depend>
   <run_depend>people_tracking_filter</run_depend>
   <run_depend>people_velocity_tracker</run_depend>
+  <run_depend>dual_people_leg_tracker</run_depend>
 
   <!-- Dependencies needed only for running tests. -->
 
